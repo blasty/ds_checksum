@@ -27,6 +27,11 @@ int main(int argc, char *argv[]) {
 	unsigned short b, c;
 	unsigned int sum=0, fsum=0, ppos, tsum=0;
 
+	if (argc != 2) {
+		fprintf(stderr, "Usage: %s zelda.sav\n", argv[0]);
+		return -1;
+	}
+
 	in = fopen(argv[1], "rb+");
 
 	// 2 slots, 70 blocks each

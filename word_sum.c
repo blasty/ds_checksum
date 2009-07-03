@@ -7,7 +7,14 @@ int main(int argc, char *argv[]) {
 	int i;
 	unsigned char *b;
 	unsigned short fsum=0,sum=0;
-	FILE *f = fopen(argv[1], "rb+");
+	FILE *f;
+
+	if (argc != 2) {
+		fprintf(stderr, "Usage: %s zelda.sav\n", argv[0]);
+		return -1;
+	}
+
+	f = fopen(argv[1], "rb+");
 
 	b = malloc(0x2000);
 	fread(b, 0x2000, 1, f);
